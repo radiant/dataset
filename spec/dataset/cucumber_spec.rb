@@ -1,8 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-$:.unshift(File.dirname(__FILE__) + '/../stubs')
-require "mini_rails"
-
+require 'action_controller'
 require 'cucumber/rails/world'
 require 'cucumber/rails/rspec'
 Cucumber::Rails::World.class_eval do
@@ -10,12 +8,12 @@ Cucumber::Rails::World.class_eval do
 end
 
 describe Cucumber::Rails::World do
-  
+
   it 'should have a dataset method' do
     world = Class.new(Cucumber::Rails::World)
     world.should respond_to(:dataset)
   end
-  
+
   it 'should load the dataset when the feature is run' do
     load_count = 0
     my_dataset = Class.new(Dataset::Base) do
@@ -23,7 +21,7 @@ describe Cucumber::Rails::World do
         load_count += 1
       end
     end
-    
+
     step_mother = Object.new
     step_mother.extend(Cucumber::StepMother)
     $__cucumber_toplevel = step_mother
@@ -36,19 +34,19 @@ describe Cucumber::Rails::World do
       true.should == true
     end
     visitor = Cucumber::Ast::Visitor.new(step_mother)
-    
+
     scenario = Cucumber::Ast::Scenario.new(
       background=nil,
       comment=Cucumber::Ast::Comment.new(""),
-      tags=Cucumber::Ast::Tags.new(98, []), 
+      tags=Cucumber::Ast::Tags.new(98, []),
       line=99,
       keyword="",
-      name="", 
+      name="",
       steps=[
         Cucumber::Ast::Step.new(8, "Given", "true is true")
       ])
     visitor.visit_feature_element(scenario)
-    
+
     load_count.should be(1)
   end
 end
