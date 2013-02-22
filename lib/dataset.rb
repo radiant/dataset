@@ -63,7 +63,7 @@ require 'dataset/record/model'
 # methods.
 #
 #    require 'dataset'
-#    class Test::Unit::TestCase
+#    class MiniTest::Unit::TestCase
 #      include Dataset
 #      datasets_directory "#{Rails.root}/test/datasets"
 #    end

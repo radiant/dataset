@@ -53,8 +53,8 @@ module Dataset
         end
       end
     end
-    
+
   end
 end
 
-Test::Unit::TestCase.extend Dataset::Extensions::TestUnitTestCase
+MiniTest::Unit::TestCase.extend Dataset::Extensions::TestUnitTestCase

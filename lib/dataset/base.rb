@@ -78,7 +78,7 @@ module Dataset
   # The easiest way to create some data before a suite of tests is run is by
   # using a Dataset::Block. An example works wonders:
   #
-  #    class PeopleTest < Test::Unit::TestCase
+  #    class PeopleTest < MiniTest::Unit::TestCase
   #      dataset do
   #        create_record :person, :billy, :name => 'Billy'
   #      end
@@ -131,7 +131,7 @@ module Dataset
   # names - to the dataset method. When you use a block, this adds a lot of
   # clarity:
   #
-  #    class PersonTest < Test::Unit::TestCase
+  #    class PersonTest < MiniTest::Unit::TestCase
   #      dataset :organization, :people do
   #        id = create_record :person, :second_admin, :name => 'Admin Three'
   #        create_record :organization_administratorship, :organization_id => organization_id(:first_bank), :person_id => id
