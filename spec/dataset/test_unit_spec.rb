@@ -41,7 +41,7 @@ describe MiniTest::Unit::TestCase do
     sessions.size.should be(2)
     sessions.uniq.size.should be(1)
   end
-  
+
   it 'should load datasets within class hiearchy' do
     dataset_one = Class.new(Dataset::Base) do
       define_method(:load) do
@@ -124,11 +124,11 @@ describe MiniTest::Unit::TestCase do
         value_in_subclass_block = @myvar
       end
     end
-    
+
     run_testcase(subclass)
     value_in_subclass_block.should == 'Hello'
   end
-  
+
   it 'should load the dataset when the suite is run' do
     load_count = 0
     dataset = Class.new(Dataset::Base) do
