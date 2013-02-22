@@ -5,12 +5,12 @@ def with_sandboxed_options
   attr_reader :options
 
   before(:each) do
-    @original_rspec_options = ::Spec::Runner.options
-    ::Spec::Runner.use(@options = ::Spec::Runner::Options.new(StringIO.new, StringIO.new))
+    @original_rspec_options = ::RSpec::Runner.options
+    ::RSpec::Runner.use(@options = ::RSpec::Runner::Options.new(StringIO.new, StringIO.new))
   end
 
   after(:each) do
-    ::Spec::Runner.use(@original_rspec_options)
+    ::RSpec::Runner.use(@original_rspec_options)
   end
 
   yield

@@ -1,10 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-class Spec::Example::ExampleGroup
+class RSpec::Core::Example::ExampleGroup
   include Dataset
 end
 
-describe Spec::Example::ExampleGroup do
+describe RSpec::Core::Example::ExampleGroup do
   with_sandboxed_options do
     it 'should have a dataset method' do
       group = Class.new(Spec::Example::ExampleGroup)

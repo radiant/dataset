@@ -73,7 +73,7 @@ In your test_helper.rb/spec_helper.rb:
 If you don't use rspec_on_rails, or you have specs that aren't of the RailsExampleGroup type, you should do this in spec_helper.rb:
 
     require 'dataset'
-    class Spec::Example::ExampleGroup
+    class RSpec::Example::ExampleGroup
       include Dataset
       datasets_directory "#{Rails.root}/spec/datasets"
     end
